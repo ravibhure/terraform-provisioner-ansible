@@ -35,11 +35,11 @@ Once installed, you can provision resources by including an `ansible` provisione
 
 The following example demonstrates a configuration block to apply a host group's plays to new instances. You can specify a list of hostgroups and a list of plays to specify which ansible tasks to perform on the host.
 
-Additionally, `group_vars` and `extra_vars` are accessible to resolve variables and group the new host in ansible.
+Additionally, `groups` and `extra_vars` are accessible to resolve variables and group the new host in ansible.
 
 ```
 {
-  resource "aws_instance" "ansible" {
+  resource "aws_instance" "terraform-provisioner-ansible-example" {
     ami = "ami-408c7f28"
     instance_type = "t1.micro"
 
@@ -49,7 +49,7 @@ Additionally, `group_vars` and `extra_vars` are accessible to resolve variables 
       }
 
       playbook = "ansible/playbook.yml"
-      group_vars = ["all"]
+      groups = ["all"]
       hosts = ["terraform"]
       extra_vars = {
         "env": "terraform"  

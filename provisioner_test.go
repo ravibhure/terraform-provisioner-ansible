@@ -29,7 +29,7 @@ func TestProvisioner_good(t *testing.T) {
 		Playbook:   createTmpFile(t, "playbook"),
 		Plays:      []string{"play1", "play2"},
 		ModulePath: createTmpDir(t, "ansible"),
-		GroupVars:     []string{"all", "terraform"},
+		Groups:     []string{"all", "terraform"},
 		ExtraVars: map[string]string{
 			"key": "value",
 		},
